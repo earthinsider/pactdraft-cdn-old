@@ -1,11 +1,6 @@
 # Changelog
 
-## v0.1.1 - no dates in paths
-- Input is now `incoming/<post-slug>.<ext>` and output `img/<post-slug>/...` (same slug as `/article/<slug>/`).
-Suggested commit message: `change: image paths use only the post slug, no dates`
-
-## v0.1.0 - first release
-- Image CDN repo: drop a file in `incoming/`, the workflow makes 480/800/1280 WebP + og.jpg (all 16:9) and deploys to GitHub Pages.
-- Budgets: 1280w <= 100 KB, 800w <= 50 KB, 480w <= 22 KB, og.jpg <= 120 KB.
-- Size report warns at 700 MB and fails at 900 MB (GitHub Pages limit is 1 GB).
-Suggested commit message: `feat: image CDN repo with variant workflow and size report`
+## v1.0.0 - simple CDN
+- Serves files exactly as uploaded: `image/<article-slug>.webp` -> `https://cdn.pactdraft.com/image/<article-slug>.webp`.
+- No resizing, no variants, no scripts. The workflow only warns about wrong names or files over 150 KB and about repo size (700 MB warning, 900 MB stop).
+Suggested commit message: `feat: simple image CDN repo`
